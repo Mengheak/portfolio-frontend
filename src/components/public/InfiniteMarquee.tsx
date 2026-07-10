@@ -1,3 +1,4 @@
+import { getImageUrl } from '../../utils/image';
 import type { Skill } from '../../types';
 
 interface InfiniteMarqueeProps {
@@ -23,7 +24,7 @@ export function InfiniteMarquee({ skills }: InfiniteMarqueeProps) {
             <div className="w-14 h-14 flex items-center justify-center">
               {skill.imageUrl ? (
                 <img
-                  src={import.meta.env.VITE_BASE_URL + skill.imageUrl}
+                  src={getImageUrl(skill.imageUrl)}
                   alt={skill.name}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 />
@@ -47,7 +48,7 @@ export function InfiniteMarquee({ skills }: InfiniteMarqueeProps) {
             <div className="w-14 h-14 flex items-center justify-center">
               {skill.imageUrl ? (
                 <img
-                  src={import.meta.env.VITE_BASE_URL + skill.imageUrl}
+                  src={getImageUrl(skill.imageUrl)}
                   alt={skill.name}
                   className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
                 />

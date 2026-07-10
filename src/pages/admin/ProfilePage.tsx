@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent, useRef } from 'react';
 import { Upload, Trash2, FileText, Image } from 'lucide-react';
 import { apiClient } from '../../api/client';
 import { Button, Input, Textarea, Card } from '../../components/ui';
+import { getImageUrl } from '../../utils/image';
 import type { Profile, ApiResponse } from '../../types';
 
 export function ProfilePage() {
@@ -117,7 +118,7 @@ export function ProfilePage() {
             {profile.avatarUrl ? (
               <div className="relative group">
                 <img
-                  src={import.meta.env.VITE_BASE_URL+profile.avatarUrl}
+                  src={getImageUrl(profile.avatarUrl)}
                   alt="Avatar"
                   className="w-16 h-16 object-cover border border-[var(--color-border)]"
                 />
@@ -167,7 +168,7 @@ export function ProfilePage() {
               <div className="flex items-center gap-2">
                 <FileText className="w-4 h-4 text-[var(--color-accent)]" />
                 <a
-                  href={import.meta.env.VITE_BASE_URL+profile.resumeUrl}
+                  href={getImageUrl(profile.resumeUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-xs text-[var(--color-accent)] hover:underline"

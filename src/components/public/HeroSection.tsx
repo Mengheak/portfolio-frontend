@@ -1,4 +1,5 @@
 import { ExternalLink, Code2, FileText, Phone, Send, Globe } from 'lucide-react';
+import { getImageUrl } from '../../utils/image';
 import type { Profile } from '../../types';
 
 interface HeroSectionProps {
@@ -26,7 +27,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
         {profile.avatarUrl && (
           <div className="shrink-0">
             <img
-              src={import.meta.env.VITE_BASE_URL+profile.avatarUrl}
+              src={getImageUrl(profile.avatarUrl)}
               alt={profile.name}
               className="size-44 rounded-full sm:size-[300px] object-cover border border-[var(--color-border)]"
             />

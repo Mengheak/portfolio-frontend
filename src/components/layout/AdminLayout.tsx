@@ -6,6 +6,7 @@ import { ThemeToggle } from '../ui/ThemeToggle';
 import { useAuth } from '../../contexts/AuthContext';
 import { apiClient } from '../../api/client';
 import { Button } from '../ui/Button';
+import { getImageUrl } from '../../utils/image';
 import type { Profile, ApiResponse } from '../../types';
 
 export function AdminLayout() {
@@ -26,9 +27,7 @@ export function AdminLayout() {
     navigate('/login');
   };
 
-  const avatarSrc = profile?.avatarUrl
-    ? import.meta.env.VITE_BASE_URL + profile.avatarUrl
-    : null;
+  const avatarSrc = profile?.avatarUrl ? getImageUrl(profile.avatarUrl) : null;
 
   return (
     <div className="flex min-h-screen bg-[var(--color-bg)]">

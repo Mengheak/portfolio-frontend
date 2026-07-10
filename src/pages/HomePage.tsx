@@ -4,6 +4,7 @@ import { HeroSection } from '../components/public/HeroSection';
 import { InfiniteMarquee } from '../components/public/InfiniteMarquee';
 import { SectionHeader } from '../components/public/SectionHeader';
 import { Card, Badge } from '../components/ui';
+import { getImageUrl } from '../utils/image';
 import { apiClient } from '../api/client';
 import type { Profile, Project, Experience, Skill, ApiResponse } from '../types';
 
@@ -52,7 +53,7 @@ export function HomePage() {
                 {p.imageUrl && (
                   <div className="aspect-video overflow-hidden">
                     <img
-                      src={import.meta.env.VITE_BASE_URL+p.imageUrl}
+                      src={getImageUrl(p.imageUrl)}
                       alt={p.title}
                       className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
                     />

@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent, useRef } from 'react';
 import { Upload, Trash2, Image } from 'lucide-react';
 import { apiClient } from '../../api/client';
 import { Button, Input, Textarea, Card, Badge } from '../../components/ui';
+import { getImageUrl } from '../../utils/image';
 import type { Project, ApiResponse } from '../../types';
 
 interface ProjectFormData {
@@ -199,7 +200,7 @@ export function ProjectsPage() {
                 <div className="flex items-center gap-3">
                   {editing.imageUrl ? (
                     <div className="relative group">
-                      <img src={import.meta.env.VITE_BASE_URL+editing.imageUrl} alt="Project" className="w-20 h-14 object-cover border border-[var(--color-border)]" />
+                      <img src={getImageUrl(editing.imageUrl)} alt="Project" className="w-20 h-14 object-cover border border-[var(--color-border)]" />
                       <button type="button" onClick={() => update('imageUrl', '')} className="absolute -top-2 -right-2 p-1 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                         <Trash2 className="w-3 h-3" />
                       </button>
