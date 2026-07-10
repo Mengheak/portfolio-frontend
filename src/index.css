@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #faf9f6;
+    --color-bg-secondary: #f5f4f0;
+    --color-fg: #1e1e1e;
+    --color-fg-muted: #6b6b6b;
+    --color-accent: #1a3a2a;
+    --color-accent-hover: #0f2b1e;
+    --color-border: #e5e4df;
+    --color-card: #ffffff;
+    --color-card-hover: #f5f4f0;
+    color-scheme: light;
+  }
+
+  .dark {
+    --color-bg: #0b0f19;
+    --color-bg-secondary: #111827;
+    --color-fg: #f1f5f9;
+    --color-fg-muted: #94a3b8;
+    --color-accent: #4a9d6e;
+    --color-accent-hover: #5cb880;
+    --color-border: #1e293b;
+    --color-card: #111827;
+    --color-card-hover: #1e293b;
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-fg);
+    font-family: 'Karla', system-ui, -apple-system, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+}
+
+@layer components {
+  .editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr min(65ch, 100%) 1fr;
+  }
+
+  .editorial-grid > * {
+    grid-column: 2;
+  }
+
+  .editorial-grid-wide {
+    grid-column: 1 / -1;
+  }
+}
